@@ -1,0 +1,30 @@
+<section>
+  <h2>🧠 DI Візуалізатор</h2>
+
+  @if (instances.length > 0) {
+    <table>
+      <thead>
+      <tr>
+        <th>Інстанс</th>
+        <th>Тип</th>
+        <th>Preview</th>
+      </tr>
+      </thead>
+      <tbody>
+        @for (entry of instances; track entry.label) {
+          <tr>
+            <td>{{ entry.label }}</td>
+            <td>{{ getType(entry.object) }}</td>
+            <td><pre>{{ summarize(entry.object) }}</pre></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  } @else {
+    <p>🤷 Жодного інстансу не зареєстровано.</p>
+  }
+
+  <h3>🗂️ Вміст DiRegistry</h3>
+  <pre>{{ registryDump }}</pre>
+
+</section>
