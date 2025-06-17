@@ -1,5 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {DiRegistry} from '@core/di-registry';
+import {Logger} from '@services/logger';
 
 @Component({
   selector: 'app-feature-a',
@@ -7,7 +8,9 @@ import {DiRegistry} from '@core/di-registry';
 })
 export class FeatureA {
   registry: DiRegistry = inject(DiRegistry);
+  logger: Logger = inject(Logger);
 
   constructor() {
+    this.logger.log('type 1', 'feature a');
   }
 }
