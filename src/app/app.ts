@@ -5,6 +5,7 @@ import {ConfigReader} from '@features/config-reader';
 import {FeatureA} from '@features/feature-a';
 import {FeatureB} from '@features/feature-b';
 import {FeatureC} from '@features/feature-c';
+import {Logger} from '@services/logger';
 
 const FEATURES = [
   FeatureA,
@@ -20,6 +21,7 @@ const FEATURES = [
   imports: [
     DiVisualizer,
     ...FEATURES,
-  ]
+  ],
+  providers: [Logger]
 })
 export class App {}
